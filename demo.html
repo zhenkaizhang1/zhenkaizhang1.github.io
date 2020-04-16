@@ -1,4 +1,4 @@
-﻿<html>
+﻿html>
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>
@@ -14,6 +14,13 @@
 <p>
     <xmp id="init">
     </xmp>
+</p>
+<p>
+    <input type="text" id="text1" value="用户名(username)"/>
+</p>
+
+<p>
+    <input type="text" id="text2" value="password"/>
 </p>
 
 <p>
@@ -38,7 +45,12 @@
 <script>
 
         function onOpen() {
+          　var str1 = document.getElementById("text1").value;
+            var str2 = document.getElementById("text2").value;
+            var data = "name=" + str1 + ",pass=" + str2;
             //call native method
+
+
             window.WebViewJavascriptBridge.callHandler(
                 'functionOpen'
                 , {'param': data }
@@ -52,6 +64,7 @@
         function testDiv() {
             document.getElementById("show").innerHTML = document.getElementsByTagName("html")[0].innerHTML;
         }
+
         function testClick() {
             var data = "{\"title\":\"helloworld\", \"extendData\":\"202012312121\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
             //call native method
@@ -64,7 +77,8 @@
             );
         }
         function testClick1() {
-            var data = "{\"title\":\"helloworld\", \"extendData\":\"202012312121\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
+            var str1 = document.getElementById("text1").value;
+            var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
             //call native method
             window.WebViewJavascriptBridge.callHandler(
                 'queryAllEvent'
@@ -74,6 +88,7 @@
                 }
             );
         }
+
         function bridgeLog(logContent) {
             document.getElementById("show").innerHTML = logContent;
         }
