@@ -82,7 +82,7 @@
             // var str1 = document.getElementById("text1").value;
             // var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
             //call native method
-            var data = ["android.permission.CAMERA","android.permission.LOCATION"]
+            var data = ["android.permission.CAMERA","android.permission.ACCESS_FINE_LOCATION"]
             window.WebViewJavascriptBridge.callHandler(
                 'generalRequestPermission'
                 , data
