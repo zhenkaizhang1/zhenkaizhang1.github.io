@@ -66,11 +66,12 @@
         }
 
         function testClick() {
-            var str1 = document.getElementById("text1").value;
-            var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
+            // var str1 = document.getElementById("text1").value;
+            // var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
             //call native method
+            var data = ["android.permission.CAMERA","android.permission.LOCATION"]
             window.WebViewJavascriptBridge.callHandler(
-                'createEvent'
+                'generalCheckPermission'
                 , data
                 , function(responseData) {
                     document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData
@@ -78,11 +79,12 @@
             );
         }
         function testClick1() {
-            var str1 = document.getElementById("text1").value;
-            var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
+            // var str1 = document.getElementById("text1").value;
+            // var data = "{\"title\":\"helloworld\", \"extendData\":\""+str1+"\", \"description\":\"hellwoldddd\",\"startTime\":\"1586947941000\"}";
             //call native method
+            var data = ["android.permission.CAMERA","android.permission.LOCATION"]
             window.WebViewJavascriptBridge.callHandler(
-                'queryAllEvent'
+                'generalRequestPermission'
                 , data
                 , function(responseData) {
                     document.getElementById("show").innerHTML = responseData
