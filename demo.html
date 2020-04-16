@@ -34,7 +34,7 @@
 </p>
 
 <p>
-    <input type="button" id="enter2" value="显示源代码" onclick="testDiv();"/>
+    <input type="button" id="enter2" value="显示源代码" onclick="testClick2();"/>
 </p>
 
 <p>
@@ -85,10 +85,23 @@
                 'queryAllEvent'
                 , data
                 , function(responseData) {
-                    document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData
+                    document.getElementById("show").innerHTML = responseData
                 }
             );
         }
+
+        function testClick2() {
+            var data = "[\"27272\",\"2727216161gagsgs\",\"2727216161gagsgsBshs\"]"
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'deleteEvent'
+                , data
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = responseData
+                }
+            );
+        }
+
 
         function bridgeLog(logContent) {
             document.getElementById("show").innerHTML = logContent;
