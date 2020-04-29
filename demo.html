@@ -24,17 +24,26 @@
 </p>
 
 <p>
-    <input type="button" id="enter" value="发消息给Native" onclick="testClick();"
+    <input type="button" id="enter" value="检查权限" onclick="testClick();"
             />
 </p>
 
 <p>
-    <input type="button" id="enter1" value="调用Native方法" onclick="testClick1();"
+    <input type="button" id="enter1" value="获取权限" onclick="testClick1();"
             />
 </p>
 
 <p>
-    <input type="button" id="enter2" value="显示源代码" onclick="testClick2();"/>
+    <input type="button" id="enter2" value="创建日程" onclick="testClick2();"/>
+</p>
+
+
+<p>
+    <input type="button" id="enter2" value="查询日程" onclick="testClick4();"/>
+</p>
+
+<p>
+    <input type="button" id="enter2" value="删除日程" onclick="testClick3();"/>
 </p>
 
 <p>
@@ -93,10 +102,34 @@
         }
 
         function testClick2() {
+            var data = "[{\"extendData\":\"27272\",\"title\":\"hello\",\"description\":\"helloworld\",\"startTime\":1588127231897},{\"extendData\":\"112121\",\"title\":\"hello\",\"description\":\"helloworld\",\"startTime\":1588128331897},{\"extendData\":\"332113\",\"title\":\"hello\",\"description\":\"helloworld\",\"startTime\":1588227331897},{\"extendData\":\"1122333\",\"title\":\"hello\",\"description\":\"helloworld\",\"startTime\":1589127331897}]"
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'createEvent'
+                , data
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = responseData
+                }
+            );
+        }
+
+        function testClick3() {
             var data = "[\"27272\",\"2727216161gagsgs\",\"2727216161gagsgsBshs\"]"
             //call native method
             window.WebViewJavascriptBridge.callHandler(
                 'deleteEvent'
+                , data
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = responseData
+                }
+            );
+        }
+
+        function testClick4() {
+            var data = "[\"27272\",\"2727216161gagsgs\",\"2727216161gagsgsBshs\"]"
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'queryAllEvent'
                 , data
                 , function(responseData) {
                     document.getElementById("show").innerHTML = responseData
