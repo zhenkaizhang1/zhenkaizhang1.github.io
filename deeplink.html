@@ -3,25 +3,25 @@
 <body>
 <script language="javascript"type="text/javascript">
 
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-var file = getQueryVariable("code")
+// function getQueryVariable(variable)
+// {
+//        var query = window.location.search.substring(1);
+//        var vars = query.split("&");
+//        for (var i=0;i<vars.length;i++) {
+//                var pair = vars[i].split("=");
+//                if(pair[0] == variable){return pair[1];}
+//        }
+//        return(false);
+// }
+// var file = getQueryVariable("code")
 
-window.location.href="kpdeep://custom/"+file;
+window.location.href="market://details?id=com.ecreditpal.tropic2&referrer=testChannel";
 </script>
 </body>
 </html>
 
 <!--
-kpdeep://custom/
+kpdeep://custom/oneClickApply
 				testLimit
 				apiProductDetail?id=137&productName=api对接Punya%20Duit&positionIndex=2&isXh
 				notDial
